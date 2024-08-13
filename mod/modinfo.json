@@ -1,0 +1,13 @@
+﻿{
+	"id": "nc.Nuktils",
+	"name": "Nuktils",
+	"version": "1.0.0",
+	"authors": "Nuclear Pasta",
+	"description": "A bunch of useful I have compiled/will compile together",
+	"checksum_override": false,
+	"requirements": [],
+	"requirements_names": [],
+	"tags": [
+		"Dependency"
+	]
+}
