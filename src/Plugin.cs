@@ -2,8 +2,5 @@
 
 namespace Nuktils;
 
-[BepInPlugin("nc.Nuktils", "Nuktils", "0.1.0")]
-class Plugin : BaseUnityPlugin
-{
-
-}
+[BepInPlugin("nc.Nuktils", "Nuktils", "1.0.0")]
+class Plugin : BaseUnityPlugin { }

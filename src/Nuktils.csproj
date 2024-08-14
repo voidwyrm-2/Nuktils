@@ -3,6 +3,7 @@
     <PropertyGroup>
         <TargetFramework>net48</TargetFramework>
         <LangVersion>11</LangVersion>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
     </PropertyGroup>
     
     <ItemGroup>
@@ -15,6 +16,7 @@
 		<ItemGroup>
 			<RemoveFiles Include="../mod/newest/plugins/*.dll" />
             <RemoveFiles Include="../mod/newest/plugins/*.pdb" />
+            <RemoveFiles Include="../mod/newest/plugins/*.xml" />
 		</ItemGroup>
 		<ItemGroup>
 			<CopyPlugins Include="$(TargetPath)" />
@@ -23,6 +25,7 @@
         <Delete Files="@(RemoveFiles)" />
         <Copy SourceFiles="@(CopyPlugins)" DestinationFolder="../mod/newest/plugins/" />
         <Copy SourceFiles="$(TargetDir)$(MSBuildProjectName).pdb" DestinationFolder="../mod/newest/plugins/" />
+        <Copy SourceFiles="$(TargetDir)$(MSBuildProjectName).xml" DestinationFolder="../mod/newest/plugins/" />
     </Target>
     
 </Project>

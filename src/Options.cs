@@ -1,29 +1,29 @@
 ﻿using Menu.Remix.MixedUI;
 using UnityEngine;
+using static Nuktils.Utils;
 
 namespace Nuktils
 {
+    /// <summary>
+    /// Utilities for remix option menus
+    /// </summary>
     public static class Options
     {
-        public readonly struct ResultDuo<T, U>
-        {
-            public readonly T one;
-            public readonly U two;
-
-            public ResultDuo(T one, U two)
-            {
-                this.one = one;
-                this.two = two;
-            }
-        }
-
+        /// <summary>
+        /// Used for the remix option prefabs
+        /// </summary>
         public interface ILabeledPair
         {
+            /// <summary>
+            /// Generates this class's UI elements
+            /// </summary>
+            /// <param name="pos"></param>
+            /// <returns>A ResultDuo struct containing the generated UI elements and a vertical offset added to the elements following this one</returns>
             public ResultDuo<UIelement[], int> Generate(Vector2 pos);
         }
 
         /// <summary>
-        /// A OpLabel and OpCheckbox
+        /// An OpLabel and OpCheckbox
         /// </summary>
         public class LabeledCheckboxPair : ILabeledPair
         {
@@ -35,6 +35,9 @@ namespace Nuktils
 
             private readonly Configurable<bool> configurable;
 
+            /// <summary>
+            /// An OpLabel and OpCheckbox
+            /// </summary>
             public LabeledCheckboxPair(string text, string description, Configurable<bool> configurable, FLabelAlignment align = FLabelAlignment.Left)
             {
                 this.text = text;
@@ -43,6 +46,7 @@ namespace Nuktils
                 this.align = align;
             }
 
+            /// <inheritdoc/>
             public ResultDuo<UIelement[], int> Generate(Vector2 pos)
             {
                 var ui = new UIelement[]
@@ -55,7 +59,7 @@ namespace Nuktils
         }
 
         /// <summary>
-        /// A OpLabel and OpIntSlider
+        /// An OpLabel and OpIntSlider
         /// </summary>
         public class LabeledIntSliderPair : ILabeledPair
         {
@@ -69,6 +73,9 @@ namespace Nuktils
 
             private readonly int sliderLength;
 
+            /// <summary>
+            /// An OpLabel and OpIntSlider
+            /// </summary>
             public LabeledIntSliderPair(string text, string description, Configurable<int> configurable, int sliderLength, FLabelAlignment align = FLabelAlignment.Left)
             {
                 this.text = text;
@@ -78,6 +85,7 @@ namespace Nuktils
                 this.sliderLength = sliderLength;
             }
 
+            /// <inheritdoc/>
             public ResultDuo<UIelement[], int> Generate(Vector2 pos)
             {
                 var ui = new UIelement[]
@@ -90,7 +98,7 @@ namespace Nuktils
         }
 
         /// <summary>
-        /// A OpLabel and OpFloatSlider
+        /// An OpLabel and OpFloatSlider
         /// </summary>
         public class LabeledFloatSliderPair : ILabeledPair
         {
@@ -104,6 +112,9 @@ namespace Nuktils
 
             private readonly int sliderLength;
 
+            /// <summary>
+            /// An OpLabel and OpFloatSlider
+            /// </summary>
             public LabeledFloatSliderPair(string text, string description, Configurable<float> configurable, int sliderLength, FLabelAlignment align = FLabelAlignment.Left)
             {
                 this.text = text;
@@ -113,6 +124,7 @@ namespace Nuktils
                 this.sliderLength = sliderLength;
             }
 
+            /// <inheritdoc/>
             public ResultDuo<UIelement[], int> Generate(Vector2 pos)
             {
                 var ui = new UIelement[]
